@@ -31,7 +31,7 @@
     <!-- Servlet Project -->
     <servlet>
         <servlet-name>ProjectServlet</servlet-name>
-        <servlet-class>com.example.construction.servlet.ProjectServlet</servlet-class>
+        <servlet-class>servlet.ProjectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProjectServlet</servlet-name>

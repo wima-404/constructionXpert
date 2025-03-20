@@ -1,5 +1,5 @@
 // src/main/java/com/example/construction/model/TaskResource.java
-package com.example.construction.model;
+package model;
 
 import java.io.Serializable;
 

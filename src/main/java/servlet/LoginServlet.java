@@ -1,4 +1,4 @@
-package com.example.construction.servlet;
+package servlet;
 
 import jakarta.servlet.http.HttpServlet;
 
