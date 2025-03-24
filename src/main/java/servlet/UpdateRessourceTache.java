@@ -1,7 +1,7 @@
-package ConstructionXpert.servlets;
+package servlet;
 
-import ConstructionXpert.DAO.RessourceDAOImpl;
-import ConstructionXpert.model.Ressource;
+import dao.RessourceDAOImpl;
+import model.Ressource;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

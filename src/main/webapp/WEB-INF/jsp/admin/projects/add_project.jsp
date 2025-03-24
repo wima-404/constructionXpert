@@ -1,77 +1,119 @@
-<!-- jsp/project/project_form.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formulaire de Projet</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-</head>
-<body>
-<h1>Formulaire de Projet</h1>
-
-<c:if test="${not empty errorMessage}">
-    <p style="color:red;">${errorMessage}</p>
-</c:if>
-
-<form action="projects?action=${empty project ? 'create' : 'update'}" method="post" id="projectForm">
-    <c:if test="${not empty project}">
-        <input type="hidden" name="id" value="${project.id}">
-    </c:if>
-
-    <label for="name">Nom:</label>
-    <input type="text" id="name" name="name" value="${project.name}" required><span id="nameError" class="error"></span><br><br>
-
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required>${project.description}</textarea><span id="descriptionError" class="error"></span><br><br>
-
-    <label for="startDate">Date de début:</label>
-    <input type="date" id="startDate" name="startDate" value="${project.startDate}" required><span id="startDateError" class="error"></span><br><br>
-
-    <label for="endDate">Date de fin:</label>
-    <input type="date" id="endDate" name="endDate" value="${project.endDate}" required><span id="endDateError" class="error"></span><br><br>
-
-    <label for="budget">Budget:</label>
-    <input type="number" id="budget" name="budget" value="${project.budget}" required><span id="budgetError" class="error"></span><br><br>
-
-    <input type="submit" value="${empty project ? 'Créer' : 'Mettre à jour'}" id="submitButton">
-    <button type="button" id="cancelButton" onclick="window.location.href='projects?action=list'">Annuler</button>
-</form>
-
-<script src="${pageContext.request.contextPath}/js/validation.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("projectForm");
-        const nameInput = document.getElementById("name");
-        const descriptionInput = document.getElementById("description");
-        const startDateInput = document.getElementById("startDate");
-        const endDateInput = document.getElementById("endDate");
-        const budgetInput = document.getElementById("budget");
-        const submitButton = document.getElementById("submitButton");
-
-        // Attach event listeners and implement validation logic as described in the previous answer.
-        // Example:  nameInput.addEventListener("input", validateName);  (implement validateName function)
-        // Remember to disable/enable the submit button based on validation results.
-
-        //Also enable the function to validate the dates, to be sure that they are in the correct order
-        startDateInput.addEventListener('change', validateDates);
-        endDateInput.addEventListener('change', validateDates);
-
-        function validateDates() {
-            const startDate = new Date(startDateInput.value);
-            const endDate = new Date(endDateInput.value);
-            if (startDate > endDate) {
-                startDateError.textContent = "La date de début doit être antérieure à la date de fin.";
-                endDateError.textContent = "La date de fin doit être postérieure à la date de début.";
-                return false;
-            } else {
-                startDateError.textContent = "";
-                endDateError.textContent = "";
-                return true;
-            }
+    <meta charset="UTF-8">
+    <title>ConstructionXpert - Projets</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
         }
 
-    });
-</script>
+        .container {
+            width: 100%; /* Full width */
+            max-width: 800px; /* Maximum width */
+            margin: 0 auto; /* Center the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff; /* Blue border */
+            box-sizing: border-box; /* Include border in width calculation */
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block; /* Remove extra space below image */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3em; /* Larger text */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+        }
+
+        footer {
+            padding: 20px;
+            text-align: right;
+        }
+        footer img {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <img src="<%=request.getContextPath()%>/images/logo.png" alt="ConstructionXpert Logo">
+            <span>ConstructionXpert</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="<%=request.getContextPath()%>/index.jsp">Accueil</a></li>
+                <li><a href="<%=request.getContextPath()%>/projets.jsp">Projets</a></li>
+                <li><a href="<%=request.getContextPath()%>/contact.jsp">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="image-container">
+        <img src="<%=request.getContextPath()%>/images/projects-image.jpg" alt="Luxury Villa">
+        <div class="overlay">PROJETS</div>
+    </div>
+    <footer>
+        <img src="<%=request.getContextPath()%>/images/footer-logo.png" alt="footer logo"/>
+    </footer>
+
+</div>
+
 </body>
 </html>

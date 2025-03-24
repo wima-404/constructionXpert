@@ -2,6 +2,7 @@ package dao;
 
 
 import construction.model.Ressource;
+import model.Ressource;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -94,4 +95,6 @@ public class RessourceDAOImpl implements RessourceDAO {
     }
 
 
+    public void UpdateRessource(Integer idRessource, model.Ressource rc) {
+    }
 }
