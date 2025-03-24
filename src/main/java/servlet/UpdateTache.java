@@ -1,8 +1,6 @@
 package servlet;
 
-import ConstructionXpert.DAO.TacheDAOImpl;
-
-import ConstructionXpert.model.Tache;
+import model.Tache;
 
 
 import jakarta.servlet.*;

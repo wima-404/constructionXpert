@@ -1,0 +1,259 @@
+
+
+
+
+
+
+.navbar-brand {
+    font-weight: bold;
+}
+.navbar-light .navbar-brand{
+    margin-top: 5px;
+}
+.nav-link-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.logo{
+    display: flex;
+    gap: 20px;
+}
+#nav{
+
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    background: #ffffff47;
+    backdrop-filter: blur(15px);
+
+}
+.header{
+    height:800px;
+    background: url('https://cdn.discordapp.com/attachments/1317121719705800825/1353686061276074098/img.jpg?ex=67e28de3&is=67e13c63&hm=6383c95097cedd4ee550a82f7c6f3fb7660875250abc141def1d809974ae3278&') no-repeat bottom right/cover;
+    backdrop-filter: blur(2px);
+}
+.header2{
+    height: 85%;
+    background :url("https://cdn.discordapp.com/attachments/1317121719705800825/1352611874822295562/668832bd40ac2950a.jpg?ex=67e1f139&is=67e09fb9&hm=80c4d56cc3b996a4454be54d43f886041783f31a10fd7446647e3b169f846fd0&")no-repeat bottom right/cover ;
+}
+.nav-link{
+    font-weight: bold;
+    color: white;
+    display: flex;
+    gap: 5px;
+}
+.navbar-expand-lg{
+    height: 80px;
+}
+.title{
+
+    width:700px;
+    margin:159px auto;
+    color:white;
+    text-align: center;
+}
+.title > h2{
+    font-size:40px;
+    text-transform:uppercase;
+    font-weight:800;
+    text-shadow: 0 0 20px white;
+}
+.title > h4{
+    font-size:14px;
+    text-transform:uppercase;
+    font-weight:600;
+    color:white;
+
+}
+
+.container.text-center.my-5 {
+    color: #ffffff;
+}
+
+
+label {
+    margin-right: 10px;
+}
+.navbar-nav{
+    height: 10%;
+}
+
+/*  d'accueil*/
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #272424;
+    color: #333;
+
+}
+
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #272424;
+    color: #333;
+
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p.text-muted {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.card1 {
+    border: none;
+    box-shadow:0 1px 5px #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgb(255, 218, 7);
+}
+
+.card1-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card1-text {
+    font-size: 1rem;
+    color: #666;
+}
+.container.text-center.my-5 {
+    color: #ffffff;
+}
+
+
+
+
+
+.description {
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.btn {
+    font-size: 2em;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #de2fc6;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #1c0b19;
+}
+h1 {
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 20px;
+
+    text-transform:uppercase;
+    font-weight:600;
+
+}
+.bgadd {
+    background-color: #f8f9fa}
+
+
+/*   Afficher les projets */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.titleProjet{
+
+    width:700px;
+    margin:118px auto;
+    color:white;
+    text-align: center;
+
+
+}
+.titleProjet >h1{
+    font-size: 48px;
+    font-weight: 600;
+    color: black;
+
+    text-transform:uppercase;
+
+    text-shadow: 0 0 20px white;
+
+}
+.titre{
+    font-family: "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.2em;
+    margin-bottom: 55px;
+    margin-top: 55px;
+    font-weight: 600;
+    font-size: 36px;
+}
+.para{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 20px auto;
+}
+
+
+
+.imgCard{
+    cursor: pointer;
+}
+
+
+
+
+/* la page Ajooouter */
+
+
+.add-project-btn {
+    background-color: #de2fc6;
+    color: rgba(239, 235, 235, 0.01);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 36px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+.add-project-btn {
+    font-weight: bold;
+}
+
+
+.add-project-btn:hover {
+    background-color: #de2fc6;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+btn-btn-waring{
+    background-color: #de2fc6;
+    color: rgba(239, 235, 235, 0.01);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 36px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
