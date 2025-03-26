@@ -1,50 +1,76 @@
-//validation.js
-// Example validation functions (add more as needed)
-function validateName(nameInput, nameError) {
-    if (nameInput.value.trim() === "") {
-        nameError.textContent = "Le nom est obligatoire.";
-        return false;
-    } else {
-        nameError.textContent = "";
-        return true;
+
+function validateForm() {
+
+    var nom = document.getElementById('ressource_nom').value;
+    var type = document.getElementById('type_ressource').value;
+    var quantite = document.getElementById('quantite').value;
+    var fournisseur = document.getElementById('fournisseur').value;
+
+
+    clearErrors();
+
+    var isValid = true;
+
+)
+    if (nom.length === 0 || isOnlySpaces(nom) || nom.length < 2) {
+        showError('ressource_nom', 'Le nom doit contenir au moins 2 caractères');
+        isValid = false;
+    }
+)
+    if (type.length === 0 || isOnlySpaces(type)) {
+        showError('type_ressource', 'Le type est requis');
+        isValid = false;
+    }
+
+
+    if (quantite.length === 0 || isNaN(quantite) || parseInt(quantite) <= 0) {
+        showError('quantite', 'Entrez une quantité valide (> 0)');
+        isValid = false;
+    }
+
+
+    if (fournisseur.length === 0 || isOnlySpaces(fournisseur)) {
+        showError('fournisseur', 'Le fournisseur est requis');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function isOnlySpaces(str) {
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] !== ' ') return false;
+    }
+    return true;
+}
+
+function showError(fieldId, message) {
+    var field = document.getElementById(fieldId);
+    field.style.borderColor = 'red';
+
+    var errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.style.color = 'red';
+    errorDiv.style.fontSize = '12px';
+    errorDiv.style.marginTop = '-10px';
+    errorDiv.style.marginBottom = '10px';
+    errorDiv.textContent = message;
+
+    field.parentNode.insertBefore(errorDiv, field.nextSibling);
+}
+
+function clearErrors() {
+
+    var errors = document.querySelectorAll('.error-message');
+    for (var i = 0; i < errors.length; i++) {
+        errors[i].parentNode.removeChild(errors[i]);
+    }s
+    var inputs = document.querySelectorAll('input, select');
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].style.borderColor = '#ddd';
     }
 }
 
-function validateDescription(descriptionInput, descriptionError) {
-    if (descriptionInput.value.trim() === "") {
-        descriptionError.textContent = "La description est obligatoire.";
-        return false;
-    } else {
-        descriptionError.textContent = "";
-        return true;
-    }
-}
-
-function validateDate(dateInput, dateError) {
-    if (dateInput.value.trim() === "") {
-        dateError.textContent = "La date est obligatoire.";
-        return false;
-    } else {
-        dateError.textContent = "";
-        return true;
-    }
-}
-
-function validateBudget(budgetInput, budgetError) {
-    if (budgetInput.value.trim() === "") {
-        budgetError.textContent = "Le budget est obligatoire.";
-        return false;
-    } else if (isNaN(budgetInput.value)) {
-        budgetError.textContent = "Le budget doit être un nombre.";
-        return false;
-    } else if (parseFloat(budgetInput.value) <= 0) {
-        budgetError.textContent = "Le budget doit être supérieur à zéro.";
-        return false;
-    } else {
-        budgetError.textContent = "";
-        return true;
-    }
-}
-
-// Add more validation functions for other fields (email, etc.)
-// Add JavaScript to project_form.jsp to call these functions and enable/disable the submit button
+document.querySelector('form').onsubmit = function() {
+    return validateForm();
+};
